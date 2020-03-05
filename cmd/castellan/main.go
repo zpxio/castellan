@@ -24,6 +24,8 @@ import (
 	"github.com/spf13/viper"
 	"net"
 	"os"
+	"os/signal"
+	"syscall"
 )
 
 func main() {
@@ -58,4 +60,28 @@ func main() {
 	if flagErr != nil {
 		log.Infof("Error while translating flags: %s", flagErr)
 	}
+
+	// Register actions
+
+	// Initialize the event system
+
+	// Start the monitors
+
+	// Start
+
+	// Set up signal monitoring
+	termSignals := make(chan os.Signal, 1)
+	exitChan := make(chan bool, 1)
+	signal.Notify(termSignals, syscall.SIGTERM, syscall.SIGINT)
+
+	go func() {
+		shutdownSignal := <-termSignals
+
+		log.Infof("Received shutdown signal: %s", shutdownSignal)
+		exitChan <- true
+	}()
+
+	// Wait for shutdown signals
+	<-exitChan
+	log.Info("Initiating shutdown.")
 }
