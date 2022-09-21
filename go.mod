@@ -1,6 +1,6 @@
 module github.com/zpxio/castellan
 
-go 1.19
+go 1.18
 
 require (
 	github.com/apex/log v1.9.0
@@ -22,5 +22,5 @@ require (
 	golang.org/x/sys v0.0.0-20190412213103-97732733099d // indirect
 	golang.org/x/text v0.3.2 // indirect
 	gopkg.in/ini.v1 v1.51.0 // indirect
-	gopkg.in/yaml.v2 v2.2.4 // indirect
+	gopkg.in/yaml.v2 v2.2.8 // indirect
 )
